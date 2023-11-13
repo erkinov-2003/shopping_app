@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "607221026677",
+    "firebase_url": "https://shopping-app-303aa-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "shopping-app-303aa",
+    "storage_bucket": "shopping-app-303aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:607221026677:android:b3d2de07e358f9447ecd3c",
+        "android_client_info": {
+          "package_name": "dev.erkinov.shopping_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNAsJ2td7aw8FUb_eLjaSJfZgfeDsLiZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
