@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/src/common/constant/app_icons.dart';
-import 'package:shopping_app/src/screen/favorite/favorite_screen.dart';
-import 'package:shopping_app/src/screen/home/home_screen.dart';
-import 'package:shopping_app/src/screen/order/order_screen.dart';
-import 'package:shopping_app/src/screen/profile/profile_screen.dart';
+import 'package:shopping_app/src/screen/create_screen.dart';
+import 'package:shopping_app/src/screen/favorite_screen.dart';
+import 'package:shopping_app/src/screen/home_screen.dart';
+import 'package:shopping_app/src/screen/order_screen.dart';
+import 'package:shopping_app/src/screen/profile_screen.dart';
 import 'package:shopping_app/src/screen/widget/bottom_item.dart';
 
 class PageBuilder extends StatefulWidget {
@@ -74,9 +75,9 @@ class _PageBuilderState extends State<PageBuilder> {
                   },
                 ),
                 CustomBottomItem(
-                  assetImages: AppIcons.favoriteIcon,
-                  index: index,
+                  assetImages: AppIcons.addIcons,
                   currentPage: 2,
+                  index: index,
                   onTap: () {
                     setState(() {
                       onTap(index = 2);
@@ -84,12 +85,22 @@ class _PageBuilderState extends State<PageBuilder> {
                   },
                 ),
                 CustomBottomItem(
+                  assetImages: AppIcons.favoriteIcon,
                   index: index,
                   currentPage: 3,
-                  assetImages: AppIcons.profileIcon,
                   onTap: () {
                     setState(() {
                       onTap(index = 3);
+                    });
+                  },
+                ),
+                CustomBottomItem(
+                  index: index,
+                  currentPage: 4,
+                  assetImages: AppIcons.profileIcon,
+                  onTap: () {
+                    setState(() {
+                      onTap(index = 4);
                     });
                   },
                 ),
@@ -104,6 +115,7 @@ class _PageBuilderState extends State<PageBuilder> {
         children: const [
           HomeScreen(),
           OrderScreen(),
+          CreateScreen(),
           FavoriteScreen(),
           ProfileScreen(),
         ],

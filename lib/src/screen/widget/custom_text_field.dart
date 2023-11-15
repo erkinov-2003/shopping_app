@@ -8,7 +8,7 @@ class CustomTextField extends StatelessWidget {
     this.counterText,
     required this.controller,
     this.suffixIcon,
-    required this.obscureText,
+    required this.obscureText, this.keyboardType,
   });
 
   final String hintText;
@@ -16,12 +16,15 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final bool obscureText;
   final TextEditingController controller;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       obscureText: obscureText,
       controller: controller,
+      textInputAction: TextInputAction.next,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(

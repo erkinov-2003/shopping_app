@@ -4,7 +4,7 @@ import 'package:shopping_app/src/screen/widget/custom_button.dart';
 import 'package:shopping_app/src/screen/widget/custom_text_field.dart';
 import 'package:shopping_app/src/service/auth_service.dart';
 
-import '../../common/constant/app_colors.dart';
+import '../common/constant/app_colors.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key, this.onTap});

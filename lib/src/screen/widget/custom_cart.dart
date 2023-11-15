@@ -4,8 +4,17 @@ import '../../common/constant/app_colors.dart';
 import '../../common/constant/app_icons.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({super.key, required this.index});
-  final int index;
+  const CustomCard({
+    super.key,
+    required this.onTap,
+    required this.title,
+    required this.brends,
+    required this.price,
+  });
+  final void Function()? onTap;
+  final String title;
+  final String brends;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +26,31 @@ class CustomCard extends StatelessWidget {
           height: 220,
           width: 240,
           child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: Colors.accents[index],
+            decoration: const BoxDecoration(
+              color: Colors.green,
               borderRadius: const BorderRadius.all(
                 Radius.circular(10),
               ),
             ),
-            child: const Padding(
-              padding: EdgeInsets.only(left: 100, top: 20),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 100, top: 20),
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 35,
-                    width: 35,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: AppColor.black,
-                      ),
-                      child: Center(
-                        child: Image(
-                          image: AssetImage(AppIcons.addIcons),
-                          height: 20,
+                  GestureDetector(
+                    onTap: onTap,
+                    child: const SizedBox(
+                      height: 35,
+                      width: 35,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColor.black,
+                        ),
+                        child: Center(
+                          child: Image(
+                            image: AssetImage(AppIcons.addIcons),
+                            height: 20,
+                          ),
                         ),
                       ),
                     ),
@@ -50,7 +62,7 @@ class CustomCard extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          "Modern light clothes",
+          title,
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
@@ -58,7 +70,7 @@ class CustomCard extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          "Dress modern",
+          brends,
           style: Theme.of(context).textTheme.titleSmall!.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w300,
@@ -66,7 +78,7 @@ class CustomCard extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          "\$212.99",
+          price,
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.w600,

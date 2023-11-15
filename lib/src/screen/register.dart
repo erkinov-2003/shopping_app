@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/src/screen/sign_in/sign_in_screen.dart';
+import 'package:shopping_app/src/screen/sign_in_screen.dart';
 
-import '../sign_up/sign_up.dart';
+import 'sign_up.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/src/common/router/app_router.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_app/src/controller/provider.dart';
+import 'package:shopping_app/src/screen/page_builder.dart';
 
 
 class MyApplication extends StatelessWidget {
@@ -7,10 +9,12 @@ class MyApplication extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: "pageBuilder",
-      routes: AppRouter.appRouter
+    return  ChangeNotifierProvider(
+      create: (context) => MainController(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: PageBuilder(),
+      ),
     );
   }
 }
