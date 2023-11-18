@@ -8,7 +8,8 @@ class CustomTextField extends StatelessWidget {
     this.counterText,
     required this.controller,
     this.suffixIcon,
-    required this.obscureText, this.keyboardType,
+    required this.obscureText,
+    this.keyboardType,
   });
 
   final String hintText;
@@ -42,7 +43,9 @@ class CustomTextField extends StatelessWidget {
           ),
         ),
         border: const OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFFF7F8F9)),
+          borderSide: BorderSide(
+            color: Color(0xFFF7F8F9),
+          ),
         ),
       ),
     );

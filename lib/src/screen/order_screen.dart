@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_app/src/common/constant/app_colors.dart';
-
+import 'package:shopping_app/src/controller/provider.dart';
 
 import '../common/constant/app_icons.dart';
 
 class OrderScreen extends StatelessWidget {
-  const OrderScreen({super.key});
+  const OrderScreen({
+    super.key,
+    required this.title,
+    required this.brends,
+  });
+  final String title;
+  final String brends;
 
   @override
   Widget build(BuildContext context) {
-    List productList = [];
+    final productList = Provider.of<MainController>(context).orderList;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -37,9 +44,7 @@ class OrderScreen extends StatelessWidget {
                         motion: const BehindMotion(),
                         children: [
                           SlidableAction(
-                            onPressed: (context) {
-
-                            },
+                            onPressed: (context) {},
                             icon: Icons.delete,
                             backgroundColor: Colors.red,
                           ),
@@ -58,8 +63,8 @@ class OrderScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        title: Text(""),
-                        subtitle: Text(""),
+                        title: Text(title),
+                        subtitle: Text(brends),
                         trailing: SizedBox(
                           height: 40,
                           width: 110,

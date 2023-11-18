@@ -1,11 +1,51 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/product_model.dart';
 
 class MainController extends ChangeNotifier{
   final _cloudStorage = FirebaseFirestore.instance.collection("product");
+
+  final List<ProductModel> _favoriteList = [];
+
+  List<ProductModel> get favoriteList => _favoriteList;
+
+
+  final List<ProductModel> _orderList = [];
+
+  List<ProductModel> get orderList => _orderList;
+
+
+  Future<bool> addSSharedPreferences(String key, String value) async {
+    final saveData = await SharedPreferences.getInstance();
+    return saveData.setString(key, value);
+  }
+
+
+  void addOrderList(ProductModel productModel){
+    _orderList.add(productModel);
+    notifyListeners();
+  }
+
+  void removeOrderList(ProductModel productModel){
+    _orderList.remove(productModel);
+    notifyListeners();
+  }
+
+
+  void removeProduct(ProductModel productModel){
+    _favoriteList.remove(productModel);
+    notifyListeners();
+  }
+
+  void addFavoriteList(ProductModel productModel) async{
+    _favoriteList.add(productModel);
+    notifyListeners();
+  }
+
   Future<void> addProductStorage(ProductModel productModel){
     final cloudStorage =  _cloudStorage.add({
       "title": productModel.title,

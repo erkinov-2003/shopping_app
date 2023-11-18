@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/src/common/constant/app_colors.dart';
 import 'package:shopping_app/src/common/constant/app_icons.dart';
 import 'package:shopping_app/src/screen/create_screen.dart';
 import 'package:shopping_app/src/screen/favorite_screen.dart';
@@ -42,6 +43,7 @@ class _PageBuilderState extends State<PageBuilder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.white,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
         child: ClipRRect(
@@ -114,7 +116,7 @@ class _PageBuilderState extends State<PageBuilder> {
         controller: controller,
         children: const [
           HomeScreen(),
-          OrderScreen(),
+          OrderScreen(title: "", brends: ""),
           CreateScreen(),
           FavoriteScreen(),
           ProfileScreen(),

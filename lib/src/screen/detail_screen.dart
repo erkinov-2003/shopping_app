@@ -1,7 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_app/src/common/constant/app_colors.dart';
 import 'package:shopping_app/src/common/constant/app_icons.dart';
-
+import 'package:shopping_app/src/controller/provider.dart';
+import 'package:shopping_app/src/model/product_model.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({
@@ -16,6 +19,7 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final favoriteList = Provider.of<MainController>(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -95,7 +99,16 @@ class DetailsScreen extends StatelessWidget {
                                           ),
                                         ),
                                         TextButton(
-                                          onPressed: () {
+                                          onPressed: ()  {
+                                            final productModel = ProductModel(
+                                              title: title,
+                                              description: description,
+                                              price: price,
+                                              brends: "",
+                                            );
+                                            favoriteList
+                                                .addFavoriteList(productModel);
+                                            Navigator.pop(context);
 
                                           },
                                           child: Text(

@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_app/src/controller/provider.dart';
 
 import '../common/constant/app_colors.dart';
 
@@ -8,7 +11,8 @@ class FavoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List favoriteList  = [];
+    final favoriteList = Provider.of<MainController>(context).favoriteList;
+    final deleteList = Provider.of<MainController>(context).removeProduct;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -37,7 +41,7 @@ class FavoriteScreen extends StatelessWidget {
                         children: [
                           SlidableAction(
                             onPressed: (context) {
-
+                              deleteList(favorite);
                             },
                             icon: Icons.delete,
                             backgroundColor: Colors.red,
@@ -82,7 +86,8 @@ class FavoriteScreen extends StatelessWidget {
                                       ),
                                     ),
                                     TextButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        deleteList(favorite);
                                         Navigator.pop(context);
                                       },
                                       child: Text(
